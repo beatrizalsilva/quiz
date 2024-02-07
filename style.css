@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
   font-family: "Inter", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -9,15 +13,111 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  background-color: #0F172A;
+  color: #F1F5F9;
+}
+
 main {
   max-width: 640px;
   padding: 20px;
   margin: 0 auto 64px;
 }
 
+header {
+  margin-top: 64px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #334155;
+}
+
+header h1 {
+  margin-top: 24px;
+  font-size: 30px;
+}
+
+/* colocar numeração ao lado das perguntas */
+#quiz {
+  counter-reset: quiz-item;
+}
+
+.quiz-item {
+  margin-top: 24px;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  overflow: hidden; /* ajusta background para não sair fora da borda */
+}
+
+.quiz-item h3 {
+  padding: 16px 20px;
+  background-color: #1E293B;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quiz-item h3::before {
+  counter-increment: quiz-item;
+  content: counter(quiz-item);
+
+  background-color: #475569;
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* não expichar quando diminuir a tela */
+}
+
+.quiz-item dl {
+  padding: 20px 24px;
+  display: grid;
+  gap: 8px; /* espaço entre elementos */
+}
+
+.quiz-item dl dt {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0; /* espaço entre as letras */
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  all: unset; /* propriedades do input apagada */
+  border: 1px solid #94A3B8;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+input:checked {
+  border: 1px solid #A3E635;
+}
+
+/* colocar a bolinha do meio */
+input:checked:before {
+  content: ""; /* elemento antes do conteudo */
+  width: 10px;
+  height: 10px;
+  background-color: #A3E635;
+  border-radius: 50%;
+}
+
 #acertos {
   text-align: center;
   background-color: #A3E635;
+  color: #000000;
 
   position: fixed;
   bottom: 0;
