@@ -91,7 +91,7 @@ for (const item of perguntas) {
             if(estaCorreta) {
                 corretas.add(item)
             }
-            mostrarTotal.textContent = corretas.size + "de " + totalDePerguntas
+            mostrarTotal.textContent = corretas.size + " de " + totalDePerguntas
         }
 
         // coloca as opções de resposta na tela
